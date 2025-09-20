@@ -11,19 +11,19 @@
   --popover: oklch(1.0 0 0);
   --popover-foreground: oklch(0.15 0.01 240);
 
-  /* Azul océano para elementos principales */
-  --primary: oklch(0.45 0.18 220);
+  /* Rojo para elementos principales */
+  --primary: oklch(0.55 0.22 15);
   --primary-foreground: oklch(0.98 0.002 240);
 
-  /* Verde energético para acciones secundarias */
-  --secondary: oklch(0.88 0.08 140);
-  --secondary-foreground: oklch(0.15 0.01 240);
+  /* Negro para acciones secundarias */
+  --secondary: oklch(0.15 0.01 240);
+  --secondary-foreground: oklch(0.98 0.002 240);
 
   --muted: oklch(0.95 0.01 240);
   --muted-foreground: oklch(0.45 0.01 240);
 
-  /* Naranja vibrante para elementos de acento (pagos, acciones importantes) */
-  --accent: oklch(0.65 0.25 40);
+  /* Rojo para elementos de acento */
+  --accent: oklch(0.55 0.22 15);
   --accent-foreground: oklch(0.98 0.002 240);
 
   /* Rojo deportivo para elementos destructivos */

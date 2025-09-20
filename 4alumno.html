@@ -13,26 +13,26 @@
 </head>
 <body class="min-h-screen bg-background">
     <!-- Header -->
-    <div class="sports-header text-white" style="padding: 1.5rem 1rem;">
-        <div class="flex flex-col items-start">
-            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-white/30 mb-2">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+    <div class="flex justify-between items-center p-2">
+        <div class="flex items-center gap-2">
+            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=100&h=100&fit=crop&crop=face"
                      alt="Cristian Saenz" class="w-full h-full object-cover">
             </div>
-            <div>
-                <h1 class="text-xl font-bold text-white drop-shadow-lg">CRISTIAN SAENZ</h1>
-                <p class="text-white/90 text-sm drop-shadow-md">Planes de Entrenamiento</p>
-            </div>
+            <span class="text-sm font-medium text-foreground">Cristian Saenz</span>
         </div>
+        <button onclick="window.location.href='index.html'" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
+            <i data-lucide="log-out" class="w-4 h-4 text-primary"></i>
+        </button>
     </div>
 
-    <div class="p-4 sports-container">
+    <div class="px-2 pb-2 sports-container">
         <!-- Navigation -->
         <div class="sports-nav">
             <div class="flex justify-between gap-2">
-                <button class="sports-button secondary flex-1" onclick="window.location.href='1alumno.html'">FICHA</button>
-                <button class="sports-button accent flex-1" onclick="window.location.href='2alumno.html'">$</button>
-                <button class="sports-button flex-1 bg-primary text-white">PLANES</button>
+                <button class="sports-button flex-1 bg-black text-white" onclick="window.location.href='1alumno.html'">FICHA</button>
+                <button class="sports-button flex-1 bg-black text-white" onclick="window.location.href='2alumno.html'">$</button>
+                <button class="sports-button flex-1 bg-red-600 text-white">PLANES</button>
             </div>
         </div>
 
@@ -223,16 +223,6 @@
             </button>
         </div>
 
-        <!-- Logout Button -->
-        <div class="mt-8 text-center">
-            <button
-                onclick="window.location.href='index.html'"
-                class="text-muted-foreground hover:text-foreground transition-colors"
-            >
-                <i data-lucide="log-out" class="w-4 h-4 mr-2 inline"></i>
-                Cerrar Sesión
-            </button>
-        </div>
     </div>
 
     <style>
