@@ -229,13 +229,19 @@ body {
     font-weight: 500;
 }
 
+/* Navigation buttons with border */
+.nav-button-border {
+    border: 1px solid white !important;
+    box-shadow: 0 0 0 0.5px white !important;
+}
+
 .filter-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .filter-btn.active {
-    background: var(--primary) !important;
+    background: #dc2626 !important;
     color: white !important;
 }
 

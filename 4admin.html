@@ -14,7 +14,10 @@
 </head>
 <body class="min-h-screen bg-background">
     <!-- Header -->
-    <div class="flex justify-end p-2">
+    <div class="flex justify-between items-center p-2">
+        <button onclick="openVersionModal()" class="px-2 py-1 text-xs text-white hover:text-gray-300 transition-colors">
+            v0.0
+        </button>
         <button onclick="window.location.href='index.html'" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
             <i data-lucide="log-out" class="w-4 h-4 text-primary"></i>
         </button>
@@ -306,6 +309,55 @@
             // Redirect back to plans page
             window.location.href = '3admin.html';
         });
+
+        function openVersionModal() {
+            document.getElementById('versionModal').style.display = 'flex';
+        }
+
+        function closeVersionModal() {
+            document.getElementById('versionModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('versionModal');
+            if (event.target === modal) {
+                closeVersionModal();
+            }
+        }
     </script>
+
+    <!-- Version Modal -->
+    <div id="versionModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold text-gray-800">Versión v0.0</h2>
+                <button onclick="closeVersionModal()" class="text-gray-500 hover:text-gray-700">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="space-y-4 text-sm text-gray-700">
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Modificaciones Realizadas:</h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li>Cambio de colores a esquema rojo, blanco y negro</li>
+                        <li>Navegación con botones activos en rojo e inactivos en negro con bordes blancos</li>
+                        <li>Optimización de espacios y padding reducido</li>
+                        <li>Eliminación de headers grandes para mayor aprovechamiento del espacio</li>
+                        <li>Botón de logout movido a la esquina superior derecha</li>
+                        <li>Imágenes de usuario actualizadas con tema atlético</li>
+                        <li>Logo con bordes redondeados en página de inicio</li>
+                        <li>Filtros compactos sin espacio desperdiciado</li>
+                        <li>Listado responsive que usa toda la altura de pantalla</li>
+                        <li>Funcionalidad para abrir perfil de estudiante al hacer click</li>
+                        <li>Selector de planes de entrenamiento mejorado</li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t">
+                    <p class="text-xs text-gray-500">Gregory Team - Sistema de Gestión de Entrenamiento</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
