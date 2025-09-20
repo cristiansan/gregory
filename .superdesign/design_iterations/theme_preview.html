@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Tema Triatlón/Gym</title>
+    <link rel="stylesheet" href="triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <div class="min-h-screen bg-background">
+        <!-- Header deportivo -->
+        <div class="sports-header text-white">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">FULANO DE TAL</h1>
+                    <p class="text-white/80 text-sm">Triatlón & Gym</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <!-- Navegación -->
+            <div class="sports-nav">
+                <div class="flex justify-between">
+                    <button class="sports-button">FICHA</button>
+                    <button class="sports-button accent">$</button>
+                    <button class="sports-button secondary">PLANES</button>
+                </div>
+            </div>
+
+            <!-- Ejemplo de tarjeta de información -->
+            <div class="sports-card">
+                <h2 class="text-lg font-semibold mb-4 text-foreground">Información Personal</h2>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-muted-foreground">EDAD:</span>
+                        <span class="font-medium">45</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted-foreground">DIRECCIÓN:</span>
+                        <span class="font-medium">XXXX</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted-foreground">TEL:</span>
+                        <span class="font-medium">116600</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted-foreground">DEPORTE:</span>
+                        <span class="font-medium text-primary">TRIATLÓN</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de lista de pagos -->
+            <div class="sports-card">
+                <h2 class="text-lg font-semibold mb-4 text-foreground">Estado de Pagos</h2>
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between p-3 bg-secondary/10 rounded-lg">
+                        <span class="font-medium">SEPTIEMBRE</span>
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-secondary/10 rounded-lg">
+                        <span class="font-medium">AGOSTO</span>
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-accent/10 rounded-lg">
+                        <span class="font-medium">JULIO</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-accent"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de botones de acción -->
+            <div class="flex gap-3 mt-6">
+                <button class="sports-button flex-1">
+                    <i data-lucide="calendar" class="w-4 h-4 mr-2 inline"></i>
+                    Ver Planes
+                </button>
+                <button class="sports-button accent flex-1">
+                    <i data-lucide="credit-card" class="w-4 h-4 mr-2 inline"></i>
+                    Pagar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

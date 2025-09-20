@@ -1,0 +1,208 @@
+/* TEMA DEPORTIVO TRIATLÓN/GYM - Mobile First */
+
+:root {
+  /* Colores principales inspirados en deportes acuáticos y energía */
+  --background: oklch(0.98 0.002 240);
+  --foreground: oklch(0.15 0.01 240);
+  --card: oklch(1.0 0 0);
+  --card-foreground: oklch(0.15 0.01 240);
+  --popover: oklch(1.0 0 0);
+  --popover-foreground: oklch(0.15 0.01 240);
+
+  /* Azul océano para elementos principales */
+  --primary: oklch(0.45 0.18 220);
+  --primary-foreground: oklch(0.98 0.002 240);
+
+  /* Verde energético para acciones secundarias */
+  --secondary: oklch(0.88 0.08 140);
+  --secondary-foreground: oklch(0.15 0.01 240);
+
+  --muted: oklch(0.95 0.01 240);
+  --muted-foreground: oklch(0.45 0.01 240);
+
+  /* Naranja vibrante para elementos de acento (pagos, acciones importantes) */
+  --accent: oklch(0.65 0.25 40);
+  --accent-foreground: oklch(0.98 0.002 240);
+
+  /* Rojo deportivo para elementos destructivos */
+  --destructive: oklch(0.55 0.22 15);
+  --destructive-foreground: oklch(0.98 0.002 240);
+
+  --border: oklch(0.88 0.02 240);
+  --input: oklch(0.88 0.02 240);
+  --ring: oklch(0.45 0.18 220);
+
+  /* Colores para gráficos deportivos */
+  --chart-1: oklch(0.45 0.18 220); /* Azul natación */
+  --chart-2: oklch(0.65 0.25 40);  /* Naranja ciclismo */
+  --chart-3: oklch(0.55 0.15 160); /* Verde running */
+  --chart-4: oklch(0.6 0.2 280);   /* Púrpura fuerza */
+  --chart-5: oklch(0.7 0.18 320);  /* Rosa recuperación */
+
+  /* Tipografías deportivas */
+  --font-sans: 'Inter', 'Roboto', sans-serif;
+  --font-serif: 'Inter', 'Roboto', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Bordes redondeados modernos pero deportivos */
+  --radius: 0.75rem;
+
+  /* Sombras sutiles para profundidad */
+  --shadow-2xs: 0 1px 2px 0px hsl(220 25% 10% / 0.08);
+  --shadow-xs: 0 1px 3px 0px hsl(220 25% 10% / 0.12);
+  --shadow-sm: 0 2px 4px -1px hsl(220 25% 10% / 0.12), 0 1px 3px -1px hsl(220 25% 10% / 0.08);
+  --shadow: 0 4px 6px -1px hsl(220 25% 10% / 0.12), 0 2px 4px -2px hsl(220 25% 10% / 0.08);
+  --shadow-md: 0 6px 12px -2px hsl(220 25% 10% / 0.12), 0 4px 6px -2px hsl(220 25% 10% / 0.08);
+  --shadow-lg: 0 10px 20px -4px hsl(220 25% 10% / 0.12), 0 6px 12px -4px hsl(220 25% 10% / 0.08);
+  --shadow-xl: 0 20px 25px -5px hsl(220 25% 10% / 0.12), 0 10px 15px -5px hsl(220 25% 10% / 0.08);
+  --shadow-2xl: 0 25px 50px -12px hsl(220 25% 10% / 0.25);
+
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Tamaños de radio calculados */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Modo oscuro para entrenamientos nocturnos */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.08 0.01 240);
+    --foreground: oklch(0.92 0.01 240);
+    --card: oklch(0.12 0.01 240);
+    --card-foreground: oklch(0.92 0.01 240);
+    --popover: oklch(0.12 0.01 240);
+    --popover-foreground: oklch(0.92 0.01 240);
+
+    --primary: oklch(0.55 0.2 220);
+    --primary-foreground: oklch(0.08 0.01 240);
+
+    --secondary: oklch(0.18 0.05 140);
+    --secondary-foreground: oklch(0.92 0.01 240);
+
+    --muted: oklch(0.15 0.01 240);
+    --muted-foreground: oklch(0.65 0.01 240);
+
+    --accent: oklch(0.7 0.25 40);
+    --accent-foreground: oklch(0.08 0.01 240);
+
+    --destructive: oklch(0.65 0.25 15);
+    --destructive-foreground: oklch(0.08 0.01 240);
+
+    --border: oklch(0.18 0.02 240);
+    --input: oklch(0.18 0.02 240);
+    --ring: oklch(0.55 0.2 220);
+  }
+}
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans) !important;
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Estilos específicos para la app deportiva */
+.sports-header {
+  background: url('../../../logo.jpg') center/cover, linear-gradient(135deg, rgba(255,0,0,0.8), rgba(255,100,100,0.6));
+  background-blend-mode: overlay;
+  padding: 1rem;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.sports-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  pointer-events: none;
+}
+
+.sports-header * {
+  position: relative;
+  z-index: 1;
+}
+
+.sports-nav {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 0.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.sports-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sports-button {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.sports-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sports-button.accent {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.sports-button.secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+/* Responsive breakpoints */
+@media (min-width: 768px) {
+  .sports-container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sports-container {
+    max-width: 1024px;
+    padding: 3rem;
+  }
+
+  .sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
