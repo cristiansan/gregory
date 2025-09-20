@@ -1,0 +1,173 @@
+/* Estilos principales para Gregory Team App */
+
+/* Imports */
+@import url('.superdesign/design_iterations/triathlon_theme.css');
+
+/* Student items styling */
+.student-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: var(--muted);
+    background-opacity: 0.2;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Filter buttons styling */
+.filter-btn {
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active {
+    background: var(--primary) !important;
+    color: white !important;
+}
+
+/* Calendar specific styling */
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+    background: var(--muted);
+    background-opacity: 0.2;
+}
+
+.calendar-day.today {
+    background: var(--primary);
+    color: white;
+}
+
+.calendar-day.training-day {
+    background: var(--muted);
+    background-opacity: 0.3;
+    font-weight: 600;
+}
+
+.training-indicator {
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.25rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+}
+
+.training-indicator.swimming {
+    background: var(--chart-1);
+}
+
+.training-indicator.cycling {
+    background: var(--chart-3);
+}
+
+.training-indicator.running {
+    background: var(--chart-2);
+}
+
+/* Payment status buttons */
+.payment-status-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payment-status-btn:hover {
+    transform: scale(1.1);
+}
+
+.payment-status-btn.paid {
+    background: rgb(220, 252, 231);
+    color: rgb(22, 163, 74);
+    border-color: rgb(187, 247, 208);
+}
+
+.payment-status-btn.unpaid {
+    background: rgb(254, 226, 226);
+    color: rgb(220, 38, 38);
+    border-color: rgb(252, 165, 165);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .filter-btn {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .student-item {
+        padding: 0.5rem;
+    }
+
+    .calendar-day {
+        font-size: 0.75rem;
+    }
+}
+
+/* Animation utilities */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+    animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(5px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,292 @@
+/* Estilos específicos para pantallas de administrador */
+
+/* Admin dashboard specific styles */
+.admin-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* KPI Cards */
+.kpi-card {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border-width: 1px;
+    transition: all 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.kpi-card.payments {
+    background: rgb(255, 247, 237);
+    border-color: rgb(254, 215, 170);
+}
+
+.kpi-card.sessions {
+    background: rgb(239, 246, 255);
+    border-color: rgb(191, 219, 254);
+}
+
+.kpi-card.debtors {
+    background: rgb(254, 242, 242);
+    border-color: rgb(252, 165, 165);
+}
+
+.kpi-card.cancellations {
+    background: rgb(249, 250, 251);
+    border-color: rgb(209, 213, 219);
+}
+
+.kpi-card.vouchers {
+    background: rgb(240, 253, 244);
+    border-color: rgb(187, 247, 208);
+}
+
+/* Plan management styles */
+.plan-item {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.plan-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plan-item.bike {
+    background: rgb(239, 246, 255);
+    border-color: rgb(191, 219, 254);
+}
+
+.plan-item.run {
+    background: rgb(240, 253, 244);
+    border-color: rgb(187, 247, 208);
+}
+
+.plan-item.swim {
+    background: rgb(236, 254, 255);
+    border-color: rgb(165, 243, 252);
+}
+
+.plan-item.gym {
+    background: rgb(250, 245, 255);
+    border-color: rgb(221, 214, 254);
+}
+
+/* Chart containers */
+.chart-container {
+    position: relative;
+    height: 200px;
+    margin: 1rem 0;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Activity feed */
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    background: var(--muted);
+    background-opacity: 0.2;
+    margin-bottom: 0.5rem;
+}
+
+.activity-indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.activity-indicator.success {
+    background: rgb(34, 197, 94);
+}
+
+.activity-indicator.info {
+    background: rgb(59, 130, 246);
+}
+
+.activity-indicator.warning {
+    background: rgb(245, 158, 11);
+}
+
+/* Form styles for admin */
+.admin-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.admin-form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.admin-form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--background);
+    color: var(--foreground);
+    transition: all 0.2s ease;
+}
+
+.admin-form-input:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: var(--primary);
+    border-color: transparent;
+}
+
+.admin-form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--background);
+    color: var(--foreground);
+    cursor: pointer;
+}
+
+.admin-form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--background);
+    color: var(--foreground);
+    resize: none;
+    min-height: 100px;
+}
+
+/* Checkbox styles */
+.admin-checkbox {
+    margin-right: 0.5rem;
+    accent-color: var(--primary);
+}
+
+/* Preview section */
+.plan-preview {
+    background: var(--muted);
+    background-opacity: 0.2;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+/* Level indicators */
+.level-indicator {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.level-indicator.beginner {
+    background: rgb(220, 252, 231);
+    color: rgb(21, 128, 61);
+}
+
+.level-indicator.intermediate {
+    background: rgb(254, 249, 195);
+    color: rgb(161, 98, 7);
+}
+
+.level-indicator.advanced {
+    background: rgb(254, 226, 226);
+    color: rgb(153, 27, 27);
+}
+
+/* Category cards */
+.category-card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-card.bike {
+    background: rgb(239, 246, 255);
+    border-color: rgb(191, 219, 254);
+}
+
+.category-card.run {
+    background: rgb(240, 253, 244);
+    border-color: rgb(187, 247, 208);
+}
+
+.category-card.swim {
+    background: rgb(236, 254, 255);
+    border-color: rgb(165, 243, 252);
+}
+
+.category-card.gym {
+    background: rgb(250, 245, 255);
+    border-color: rgb(221, 214, 254);
+}
+
+/* Responsive admin layouts */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 1rem;
+    }
+
+    .kpi-card {
+        padding: 0.75rem;
+    }
+
+    .chart-container {
+        height: 180px;
+    }
+
+    .admin-form-input,
+    .admin-form-select,
+    .admin-form-textarea {
+        padding: 0.5rem;
+    }
+}
+
+/* Admin navigation enhancements */
+.admin-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--background);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Stats animation */
+.stat-number {
+    animation: countUp 0.8s ease-out;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
