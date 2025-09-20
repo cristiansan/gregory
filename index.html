@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gregory Team - Grupo de Entrenamiento</title>
+    <link rel="stylesheet" href=".superdesign/design_iterations/triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+        <!-- Logo/Header -->
+        <div class="text-center mb-12">
+            <div class="w-96 h-40 mx-auto mb-6">
+                <img src="logo.jpg" alt="Gregory Team" class="w-full h-full object-contain">
+            </div>
+        </div>
+
+        <!-- Access Card -->
+        <div class="sports-card w-full max-w-md">
+            <!-- Demo Access Buttons -->
+            <div class="space-y-3 mb-8">
+                <button
+                    onclick="loginAsStudent()"
+                    class="sports-button w-full text-center"
+                >
+                    <i data-lucide="user" class="w-4 h-4 mr-2 inline"></i>
+                    Entrar como Alumno
+                </button>
+                <button
+                    onclick="loginAsAdmin()"
+                    class="sports-button accent w-full text-center"
+                >
+                    <i data-lucide="shield" class="w-4 h-4 mr-2 inline"></i>
+                    Entrar como Admin
+                </button>
+            </div>
+
+            <!-- Coming Soon Section -->
+            <div class="text-center pt-6 border-t border-border">
+                <div class="mb-4">
+                    <i data-lucide="clock" class="w-8 h-8 mx-auto text-muted-foreground mb-2"></i>
+                </div>
+                <h2 class="text-xl font-semibold text-foreground mb-2">Próximamente</h2>
+                <p class="text-muted-foreground text-sm">
+                    El sistema de login estará disponible pronto.
+                    <br>
+                    Por ahora puedes acceder con los botones de arriba.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-12 text-center">
+            <p class="text-muted-foreground text-sm">
+                © 2025 Gregory Team - Grupo de Entrenamiento
+            </p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Demo function for student access
+        function loginAsStudent() {
+            window.location.href = '1alumno.html';
+        }
+
+        // Demo function for admin access
+        function loginAsAdmin() {
+            window.location.href = '1admin.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes - Gregory Team</title>
+    <link rel="stylesheet" href=".superdesign/design_iterations/triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <div class="sports-header text-white" style="padding: 1.5rem 1rem;">
+        <div class="flex flex-col items-start">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-white/30 mb-2">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                     alt="Cristian Saenz" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white drop-shadow-lg">CRISTIAN SAENZ</h1>
+                <p class="text-white/90 text-sm drop-shadow-md">Planes de Entrenamiento</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 sports-container">
+        <!-- Navigation -->
+        <div class="sports-nav">
+            <div class="flex justify-between gap-2">
+                <button class="sports-button secondary flex-1" onclick="window.location.href='1alumno.html'">FICHA</button>
+                <button class="sports-button accent flex-1" onclick="window.location.href='2alumno.html'">$</button>
+                <button class="sports-button flex-1 bg-primary text-white">PLANES</button>
+            </div>
+        </div>
+
+        <!-- Training Plans -->
+        <div class="sports-card">
+            <h2 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="target" class="w-5 h-5 mr-2 text-primary"></i>
+                Planes de Entrenamiento
+            </h2>
+            <div class="space-y-3">
+                <div class="p-4 bg-chart-1/10 rounded-lg border border-chart-1/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i data-lucide="waves" class="w-5 h-5 text-chart-1 mr-3"></i>
+                            <span class="font-medium text-chart-1">PLAN NATACIÓN</span>
+                        </div>
+                        <span class="text-sm text-muted-foreground">45 min</span>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-chart-3/10 rounded-lg border border-chart-3/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i data-lucide="bike" class="w-5 h-5 text-chart-3 mr-3"></i>
+                            <span class="font-medium text-chart-3">CICLISMO RESIST</span>
+                        </div>
+                        <span class="text-sm text-muted-foreground">2h</span>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-chart-2/10 rounded-lg border border-chart-2/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <i data-lucide="footprints" class="w-5 h-5 text-chart-2 mr-3"></i>
+                            <span class="font-medium text-chart-2">CORRER RECUP.</span>
+                        </div>
+                        <span class="text-sm text-muted-foreground">1h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="sports-card">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold text-foreground flex items-center">
+                    <i data-lucide="calendar" class="w-5 h-5 mr-2 text-accent"></i>
+                    Calendario
+                </h2>
+                <div class="flex items-center gap-2">
+                    <button onclick="changeMonth(-1)" class="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <span id="currentMonth" class="font-semibold">SEPT 2025</span>
+                    <button onclick="changeMonth(1)" class="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div class="bg-muted/20 rounded-lg p-4">
+                <!-- Days of week header -->
+                <div class="grid grid-cols-7 gap-1 mb-3">
+                    <div class="text-center text-xs font-medium text-muted-foreground p-2">DO</div>
+                    <div class="text-center text-xs font-medium text-muted-foreground p-2">LU</div>
+                    <div class="text-center text-xs font-medium text-muted-foreground p-2">MA</div>
+                    <div class="text-center text-xs font-medium text-muted-foreground p-2">MI</div>
+                    <div class="text-center text-xs font-medium text-muted-foreground p-2">JU</div>
+                    <div class="text-center text-xs font-medium text-muted-foreground p-2">VI</div>
+                    <div class="text-center text-xs font-medium text-muted-foreground p-2">SA</div>
+                </div>
+
+                <!-- Calendar days -->
+                <div class="grid grid-cols-7 gap-1" id="calendarGrid">
+                    <!-- Week 1 -->
+                    <div class="calendar-day" data-day="1">1</div>
+                    <div class="calendar-day" data-day="2">2</div>
+                    <div class="calendar-day" data-day="3">3</div>
+                    <div class="calendar-day" data-day="4">4</div>
+                    <div class="calendar-day" data-day="5">5</div>
+                    <div class="calendar-day" data-day="6">6</div>
+                    <div class="calendar-day" data-day="7">7</div>
+
+                    <!-- Week 2 -->
+                    <div class="calendar-day" data-day="8">8</div>
+                    <div class="calendar-day training-day" data-day="9">9
+                        <div class="training-indicator swimming"></div>
+                    </div>
+                    <div class="calendar-day" data-day="10">10</div>
+                    <div class="calendar-day training-day" data-day="11">11
+                        <div class="training-indicator cycling"></div>
+                    </div>
+                    <div class="calendar-day" data-day="12">12</div>
+                    <div class="calendar-day training-day" data-day="13">13
+                        <div class="training-indicator running"></div>
+                    </div>
+                    <div class="calendar-day" data-day="14">14</div>
+
+                    <!-- Week 3 -->
+                    <div class="calendar-day" data-day="15">15</div>
+                    <div class="calendar-day training-day" data-day="16">16
+                        <div class="training-indicator swimming"></div>
+                    </div>
+                    <div class="calendar-day" data-day="17">17</div>
+                    <div class="calendar-day training-day today" data-day="18">18
+                        <div class="training-indicator cycling"></div>
+                    </div>
+                    <div class="calendar-day" data-day="19">19</div>
+                    <div class="calendar-day training-day" data-day="20">20
+                        <div class="training-indicator running"></div>
+                    </div>
+                    <div class="calendar-day" data-day="21">21</div>
+
+                    <!-- Week 4 -->
+                    <div class="calendar-day" data-day="22">22</div>
+                    <div class="calendar-day training-day" data-day="23">23
+                        <div class="training-indicator swimming"></div>
+                    </div>
+                    <div class="calendar-day" data-day="24">24</div>
+                    <div class="calendar-day training-day" data-day="25">25
+                        <div class="training-indicator cycling"></div>
+                    </div>
+                    <div class="calendar-day" data-day="26">26</div>
+                    <div class="calendar-day training-day" data-day="27">27
+                        <div class="training-indicator running"></div>
+                    </div>
+                    <div class="calendar-day" data-day="28">28</div>
+
+                    <!-- Week 5 -->
+                    <div class="calendar-day" data-day="29">29</div>
+                    <div class="calendar-day training-day" data-day="30">30
+                        <div class="training-indicator swimming"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="flex items-center justify-center gap-4 mt-4 text-xs">
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-chart-1 rounded-full"></div>
+                    <span>Natación</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-chart-3 rounded-full"></div>
+                    <span>Ciclismo</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-chart-2 rounded-full"></div>
+                    <span>Running</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today's Training -->
+        <div class="sports-card bg-accent/10 border-accent/20">
+            <h3 class="text-lg font-semibold mb-3 text-accent flex items-center">
+                <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
+                Entrenamiento de Hoy
+            </h3>
+            <div class="bg-white rounded-lg p-4 border">
+                <div class="flex items-center mb-3">
+                    <i data-lucide="bike" class="w-6 h-6 text-chart-3 mr-3"></i>
+                    <div>
+                        <h4 class="font-semibold text-chart-3">Ciclismo de Resistencia</h4>
+                        <p class="text-sm text-muted-foreground">18 de Septiembre - 2 horas</p>
+                    </div>
+                </div>
+                <p class="text-sm text-foreground mb-3">
+                    Entrenamiento de resistencia en bicicleta. Mantener ritmo constante durante 2 horas.
+                </p>
+                <button class="sports-button accent w-full text-sm">
+                    <i data-lucide="play" class="w-4 h-4 mr-2 inline"></i>
+                    Iniciar Entrenamiento
+                </button>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-3 mt-6">
+            <button class="sports-button secondary flex-1" onclick="window.location.href='1alumno.html'">
+                <i data-lucide="user" class="w-4 h-4 mr-2 inline"></i>
+                Ver Ficha
+            </button>
+            <button class="sports-button accent flex-1" onclick="window.location.href='2alumno.html'">
+                <i data-lucide="credit-card" class="w-4 h-4 mr-2 inline"></i>
+                Ver Pagos
+            </button>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-8 text-center">
+            <button
+                onclick="window.location.href='index.html'"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+            >
+                <i data-lucide="log-out" class="w-4 h-4 mr-2 inline"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .calendar-day {
+            @apply aspect-square flex items-center justify-center text-sm font-medium rounded-lg cursor-pointer hover:bg-muted/20 transition-colors relative;
+        }
+
+        .calendar-day.today {
+            @apply bg-primary text-white;
+        }
+
+        .calendar-day.training-day {
+            @apply bg-muted/30 font-semibold;
+        }
+
+        .training-indicator {
+            @apply absolute bottom-1 right-1 w-2 h-2 rounded-full;
+        }
+
+        .training-indicator.swimming {
+            @apply bg-chart-1;
+        }
+
+        .training-indicator.cycling {
+            @apply bg-chart-3;
+        }
+
+        .training-indicator.running {
+            @apply bg-chart-2;
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+
+        let currentDate = new Date(2025, 8, 18); // September 18, 2025
+
+        function changeMonth(direction) {
+            currentDate.setMonth(currentDate.getMonth() + direction);
+            updateCalendarDisplay();
+        }
+
+        function updateCalendarDisplay() {
+            const months = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+                          'JULIO', 'AGOSTO', 'SEPT', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
+
+            document.getElementById('currentMonth').textContent =
+                `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        }
+
+        // Initialize calendar
+        updateCalendarDisplay();
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Pago - Gregory Team</title>
+    <link rel="stylesheet" href=".superdesign/design_iterations/triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <div class="sports-header text-white">
+        <div class="flex justify-between items-start" style="padding: 0.5rem 0;">
+            <div class="flex flex-col items-start">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-white/30 mb-2">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                         alt="Cristian Saenz" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-white drop-shadow-lg">CRISTIAN SAENZ</h1>
+                    <p class="text-white/90 text-sm drop-shadow-md">Realizar Pago</p>
+                </div>
+            </div>
+            <button onclick="window.location.href='2alumno.html'" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center border border-white/30 mt-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="p-4 sports-container">
+        <!-- Navigation -->
+        <div class="sports-nav">
+            <div class="flex justify-between gap-2">
+                <button class="sports-button secondary flex-1" onclick="window.location.href='1alumno.html'">FICHA</button>
+                <button class="sports-button accent flex-1 bg-accent text-white">$</button>
+                <button class="sports-button secondary flex-1" onclick="window.location.href='4alumno.html'">PLANES</button>
+            </div>
+        </div>
+
+        <!-- Payment Header -->
+        <div class="sports-card bg-accent/10 border-accent/20">
+            <h2 class="text-xl font-bold text-center text-accent mb-2">REALIZAR PAGO</h2>
+            <p class="text-center text-muted-foreground" id="selectedMonth">Mes seleccionado: MAYO</p>
+        </div>
+
+        <!-- Payment Details -->
+        <div class="sports-card">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="calendar" class="w-5 h-5 mr-2 text-primary"></i>
+                Detalles del Pago
+            </h3>
+            <div class="bg-muted/20 rounded-lg p-4">
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-muted-foreground">Fecha:</span>
+                        <span class="font-medium">Lunes 18 Sept</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted-foreground">Hora:</span>
+                        <span class="font-medium">10:00 AM</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-muted-foreground">Concepto:</span>
+                        <span class="font-medium">Mensualidad Triatlón</span>
+                    </div>
+                    <div class="flex justify-between border-t pt-3">
+                        <span class="text-lg font-semibold">Monto:</span>
+                        <span class="text-lg font-bold text-accent">$15.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="sports-card">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="smartphone" class="w-5 h-5 mr-2 text-accent"></i>
+                Información de Pago
+            </h3>
+
+            <!-- QR Code Section -->
+            <div class="text-center mb-6">
+                <h4 class="font-semibold text-foreground mb-3">ESCANEA QR</h4>
+                <div class="w-48 h-48 mx-auto bg-white rounded-lg border-2 border-border flex items-center justify-center shadow-md">
+                    <!-- QR Code placeholder -->
+                    <div class="w-40 h-40 bg-foreground opacity-10 rounded-md flex items-center justify-center">
+                        <i data-lucide="qr-code" class="w-20 h-20 text-foreground/50"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bank Details -->
+            <div class="space-y-4">
+                <div class="bg-primary/10 rounded-lg p-4">
+                    <h5 class="font-semibold text-primary mb-2">Datos Bancarios</h5>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground">CVU:</span>
+                            <span class="font-mono font-semibold">0034554172</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground">Alias:</span>
+                            <span class="font-mono font-semibold">lucia.cosa.roja</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground">Referencia:</span>
+                            <span class="font-semibold">LUCIA COSA ROJA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copy buttons -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="copyToClipboard('0034554172')" class="sports-button secondary text-sm">
+                        <i data-lucide="copy" class="w-4 h-4 mr-2 inline"></i>
+                        Copiar CVU
+                    </button>
+                    <button onclick="copyToClipboard('lucia.cosa.roja')" class="sports-button secondary text-sm">
+                        <i data-lucide="copy" class="w-4 h-4 mr-2 inline"></i>
+                        Copiar Alias
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Confirmation -->
+        <div class="sports-card bg-orange-50 border-orange-200">
+            <h3 class="text-lg font-semibold mb-3 text-orange-800 flex items-center">
+                <i data-lucide="alert-circle" class="w-5 h-5 mr-2"></i>
+                Después del Pago
+            </h3>
+            <p class="text-orange-700 text-sm mb-4">
+                Una vez realizado el pago, envía el comprobante por WhatsApp al entrenador para confirmar el pago.
+            </p>
+            <button class="sports-button accent w-full">
+                <i data-lucide="message-circle" class="w-4 h-4 mr-2 inline"></i>
+                Enviar Comprobante por WhatsApp
+            </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-3 mt-6">
+            <button class="sports-button secondary flex-1" onclick="window.location.href='2alumno.html'">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2 inline"></i>
+                Volver a Pagos
+            </button>
+            <button class="sports-button flex-1" onclick="markAsPaid()">
+                <i data-lucide="check" class="w-4 h-4 mr-2 inline"></i>
+                Marcar como Pagado
+            </button>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-8 text-center">
+            <button
+                onclick="window.location.href='index.html'"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+            >
+                <i data-lucide="log-out" class="w-4 h-4 mr-2 inline"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Load selected month from localStorage
+        window.onload = function() {
+            const selectedMonth = localStorage.getItem('selectedMonth');
+            if (selectedMonth) {
+                document.getElementById('selectedMonth').textContent = `Mes seleccionado: ${selectedMonth.toUpperCase()}`;
+            }
+        };
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Show feedback
+                const button = event.target.closest('button');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i data-lucide="check" class="w-4 h-4 mr-2 inline"></i>¡Copiado!';
+                button.classList.add('bg-green-600', 'text-white');
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('bg-green-600', 'text-white');
+                    lucide.createIcons();
+                }, 2000);
+            });
+        }
+
+        function markAsPaid() {
+            if (confirm('¿Confirmas que realizaste el pago?')) {
+                alert('¡Pago marcado como realizado! Se notificará al entrenador.');
+                window.location.href = '2alumno.html';
+            }
+        }
+    </script>
+</body>
+</html>

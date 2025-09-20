@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Plan - Gregory Team</title>
+    <link rel="stylesheet" href=".superdesign/design_iterations/triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <div class="sports-header text-white" style="padding: 1.5rem 1rem;">
+        <div class="flex justify-between items-start">
+            <div class="flex flex-col items-start">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-white/30 mb-2">
+                    <i data-lucide="plus-circle" class="w-8 h-8 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-white drop-shadow-lg">CREAR PLAN</h1>
+                    <p class="text-white/90 text-sm drop-shadow-md">Nuevo Entrenamiento</p>
+                </div>
+            </div>
+            <button onclick="window.location.href='3admin.html'" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center border border-white/30 mt-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="p-4 sports-container">
+        <!-- Form Card -->
+        <div class="sports-card">
+            <h2 class="text-xl font-semibold mb-6 text-foreground flex items-center">
+                <i data-lucide="edit" class="w-6 h-6 mr-2 text-accent"></i>
+                Formulario de Nuevo Plan
+            </h2>
+
+            <form id="newPlanForm" class="space-y-6">
+                <!-- Plan Name -->
+                <div>
+                    <label for="planName" class="block text-sm font-medium text-foreground mb-2">
+                        <i data-lucide="type" class="w-4 h-4 mr-1 inline"></i>
+                        Nombre del Plan
+                    </label>
+                    <input
+                        type="text"
+                        id="planName"
+                        name="planName"
+                        class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
+                        placeholder="Ej: Resistencia Base Ciclismo"
+                        required
+                    >
+                </div>
+
+                <!-- Discipline Selector -->
+                <div>
+                    <label for="discipline" class="block text-sm font-medium text-foreground mb-2">
+                        <i data-lucide="target" class="w-4 h-4 mr-1 inline"></i>
+                        Disciplina
+                    </label>
+                    <select
+                        id="discipline"
+                        name="discipline"
+                        class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
+                        required
+                    >
+                        <option value="">Seleccionar disciplina</option>
+                        <option value="bike">🚴‍♂️ Bike (Ciclismo)</option>
+                        <option value="run">🏃‍♂️ Run (Running)</option>
+                        <option value="swim">🏊‍♂️ Swim (Natación)</option>
+                        <option value="gym">🏋️‍♂️ Gym (Gimnasio)</option>
+                        <option value="triatlon">🏆 Triatlón (Combinado)</option>
+                    </select>
+                </div>
+
+                <!-- Level -->
+                <div>
+                    <label for="level" class="block text-sm font-medium text-foreground mb-2">
+                        <i data-lucide="trending-up" class="w-4 h-4 mr-1 inline"></i>
+                        Nivel de Dificultad
+                    </label>
+                    <select
+                        id="level"
+                        name="level"
+                        class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
+                        required
+                    >
+                        <option value="">Seleccionar nivel</option>
+                        <option value="principiante">🟢 Principiante</option>
+                        <option value="intermedio">🟡 Intermedio</option>
+                        <option value="avanzado">🔴 Avanzado</option>
+                    </select>
+                </div>
+
+                <!-- Duration -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="duration" class="block text-sm font-medium text-foreground mb-2">
+                            <i data-lucide="clock" class="w-4 h-4 mr-1 inline"></i>
+                            Duración
+                        </label>
+                        <input
+                            type="number"
+                            id="duration"
+                            name="duration"
+                            min="1"
+                            max="300"
+                            class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
+                            placeholder="90"
+                            required
+                        >
+                    </div>
+                    <div>
+                        <label for="durationUnit" class="block text-sm font-medium text-foreground mb-2">
+                            Unidad
+                        </label>
+                        <select
+                            id="durationUnit"
+                            name="durationUnit"
+                            class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
+                            required
+                        >
+                            <option value="min">Minutos</option>
+                            <option value="hours">Horas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Intensity -->
+                <div>
+                    <label for="intensity" class="block text-sm font-medium text-foreground mb-2">
+                        <i data-lucide="zap" class="w-4 h-4 mr-1 inline"></i>
+                        Intensidad
+                    </label>
+                    <select
+                        id="intensity"
+                        name="intensity"
+                        class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
+                        required
+                    >
+                        <option value="">Seleccionar intensidad</option>
+                        <option value="baja">🟢 Baja (Zona 1-2)</option>
+                        <option value="moderada">🟡 Moderada (Zona 3)</option>
+                        <option value="alta">🟠 Alta (Zona 4)</option>
+                        <option value="maxima">🔴 Máxima (Zona 5)</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <label for="description" class="block text-sm font-medium text-foreground mb-2">
+                        <i data-lucide="file-text" class="w-4 h-4 mr-1 inline"></i>
+                        Descripción del Entrenamiento
+                    </label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="4"
+                        class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                        placeholder="Describe el plan de entrenamiento, objetivos, ejercicios específicos, etc."
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- Objectives -->
+                <div>
+                    <label for="objectives" class="block text-sm font-medium text-foreground mb-2">
+                        <i data-lucide="flag" class="w-4 h-4 mr-1 inline"></i>
+                        Objetivos del Plan
+                    </label>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" name="objectives" value="resistencia" class="mr-2 text-primary">
+                            <span class="text-sm">Mejorar resistencia cardiovascular</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="objectives" value="fuerza" class="mr-2 text-primary">
+                            <span class="text-sm">Desarrollar fuerza muscular</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="objectives" value="velocidad" class="mr-2 text-primary">
+                            <span class="text-sm">Aumentar velocidad</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="objectives" value="tecnica" class="mr-2 text-primary">
+                            <span class="text-sm">Perfeccionar técnica</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="objectives" value="recuperacion" class="mr-2 text-primary">
+                            <span class="text-sm">Facilitar recuperación</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Equipment -->
+                <div>
+                    <label for="equipment" class="block text-sm font-medium text-foreground mb-2">
+                        <i data-lucide="wrench" class="w-4 h-4 mr-1 inline"></i>
+                        Equipamiento Necesario
+                    </label>
+                    <input
+                        type="text"
+                        id="equipment"
+                        name="equipment"
+                        class="w-full p-3 border border-border rounded-lg bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent"
+                        placeholder="Ej: Bicicleta, casco, pulsómetro"
+                    >
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-4 pt-4">
+                    <button
+                        type="button"
+                        onclick="window.location.href='3admin.html'"
+                        class="sports-button secondary flex-1"
+                    >
+                        <i data-lucide="x" class="w-4 h-4 mr-2 inline"></i>
+                        Cancelar
+                    </button>
+                    <button
+                        type="submit"
+                        class="sports-button accent flex-1"
+                    >
+                        <i data-lucide="save" class="w-4 h-4 mr-2 inline"></i>
+                        Guardar Plan
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Preview Card -->
+        <div class="sports-card bg-muted/20" id="planPreview" style="display: none;">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="eye" class="w-5 h-5 mr-2 text-accent"></i>
+                Vista Previa del Plan
+            </h3>
+            <div id="previewContent" class="space-y-2 text-sm">
+                <!-- Preview content will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-8 text-center">
+            <button
+                onclick="window.location.href='index.html'"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+            >
+                <i data-lucide="log-out" class="w-4 h-4 mr-2 inline"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Form handling and live preview
+        const form = document.getElementById('newPlanForm');
+        const preview = document.getElementById('planPreview');
+        const previewContent = document.getElementById('previewContent');
+
+        // Live preview update
+        form.addEventListener('input', updatePreview);
+        form.addEventListener('change', updatePreview);
+
+        function updatePreview() {
+            const formData = new FormData(form);
+            const planName = formData.get('planName');
+            const discipline = formData.get('discipline');
+            const level = formData.get('level');
+            const duration = formData.get('duration');
+            const durationUnit = formData.get('durationUnit');
+            const intensity = formData.get('intensity');
+
+            if (planName || discipline || level) {
+                preview.style.display = 'block';
+
+                let content = '';
+                if (planName) content += `<p><strong>Nombre:</strong> ${planName}</p>`;
+                if (discipline) content += `<p><strong>Disciplina:</strong> ${getOptionText('discipline', discipline)}</p>`;
+                if (level) content += `<p><strong>Nivel:</strong> ${getOptionText('level', level)}</p>`;
+                if (duration && durationUnit) content += `<p><strong>Duración:</strong> ${duration} ${durationUnit}</p>`;
+                if (intensity) content += `<p><strong>Intensidad:</strong> ${getOptionText('intensity', intensity)}</p>`;
+
+                previewContent.innerHTML = content;
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+        function getOptionText(selectId, value) {
+            const select = document.getElementById(selectId);
+            const option = select.querySelector(`option[value="${value}"]`);
+            return option ? option.textContent : value;
+        }
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(form);
+            const objectives = [];
+            document.querySelectorAll('input[name="objectives"]:checked').forEach(cb => {
+                objectives.push(cb.value);
+            });
+
+            // Simulate saving (in real app, this would be an API call)
+            const planData = {
+                name: formData.get('planName'),
+                discipline: formData.get('discipline'),
+                level: formData.get('level'),
+                duration: `${formData.get('duration')} ${formData.get('durationUnit')}`,
+                intensity: formData.get('intensity'),
+                description: formData.get('description'),
+                objectives: objectives,
+                equipment: formData.get('equipment')
+            };
+
+            // Show success message
+            alert('¡Plan de entrenamiento creado exitosamente!');
+
+            // Redirect back to plans page
+            window.location.href = '3admin.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPI Dashboard - Gregory Team</title>
+    <link rel="stylesheet" href=".superdesign/design_iterations/triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <div class="sports-header text-white" style="padding: 1.5rem 1rem;">
+        <div class="flex justify-between items-start">
+            <div class="flex flex-col items-start">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-white/30 mb-2">
+                    <i data-lucide="bar-chart-3" class="w-8 h-8 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-white drop-shadow-lg">DASHBOARD KPI</h1>
+                    <p class="text-white/90 text-sm drop-shadow-md">Métricas y Analytics</p>
+                </div>
+            </div>
+            <button onclick="window.location.href='1admin.html'" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center border border-white/30 mt-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="p-4 sports-container">
+        <!-- Navigation -->
+        <div class="sports-nav">
+            <div class="flex justify-between gap-2">
+                <button class="sports-button secondary flex-1" onclick="window.location.href='1admin.html'">ALUMNOS</button>
+                <button class="sports-button accent flex-1 bg-accent text-white">$</button>
+                <button class="sports-button secondary flex-1" onclick="window.location.href='3admin.html'">PLANES</button>
+            </div>
+        </div>
+
+        <!-- KPI Summary Cards -->
+        <div class="grid grid-cols-2 gap-3 mb-6">
+            <div class="sports-card text-center bg-orange-50 border-orange-200">
+                <div class="w-10 h-10 mx-auto mb-2 bg-orange-100 rounded-full flex items-center justify-center">
+                    <i data-lucide="credit-card" class="w-5 h-5 text-orange-600"></i>
+                </div>
+                <p class="text-2xl font-bold text-orange-800">6</p>
+                <p class="text-xs text-orange-600">Pagos Pendientes</p>
+            </div>
+
+            <div class="sports-card text-center bg-blue-50 border-blue-200">
+                <div class="w-10 h-10 mx-auto mb-2 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i data-lucide="calendar-check" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <p class="text-2xl font-bold text-blue-800">42</p>
+                <p class="text-xs text-blue-600">Sesiones Cargadas</p>
+            </div>
+
+            <div class="sports-card text-center bg-red-50 border-red-200">
+                <div class="w-10 h-10 mx-auto mb-2 bg-red-100 rounded-full flex items-center justify-center">
+                    <i data-lucide="user-x" class="w-5 h-5 text-red-600"></i>
+                </div>
+                <p class="text-2xl font-bold text-red-800">3</p>
+                <p class="text-xs text-red-600">Deudores</p>
+            </div>
+
+            <div class="sports-card text-center bg-gray-50 border-gray-200">
+                <div class="w-10 h-10 mx-auto mb-2 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i data-lucide="user-minus" class="w-5 h-5 text-gray-600"></i>
+                </div>
+                <p class="text-2xl font-bold text-gray-800">2</p>
+                <p class="text-xs text-gray-600">Bajas Este Mes</p>
+            </div>
+        </div>
+
+        <!-- Payments Chart -->
+        <div class="sports-card">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="pie-chart" class="w-5 h-5 mr-2 text-orange-600"></i>
+                Estado de Pagos
+            </h3>
+            <div class="flex justify-center mb-4">
+                <canvas id="paymentsChart" width="200" height="200"></canvas>
+            </div>
+            <div class="flex justify-center gap-4 text-xs">
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span>Pagados (18)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                    <span>Pendientes (6)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sessions Chart -->
+        <div class="sports-card">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="activity" class="w-5 h-5 mr-2 text-blue-600"></i>
+                Sesiones por Disciplina
+            </h3>
+            <div class="flex justify-center mb-4">
+                <canvas id="sessionsChart" width="200" height="200"></canvas>
+            </div>
+            <div class="flex justify-center gap-2 text-xs flex-wrap">
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span>Run (15)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span>Swim (12)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span>Bike (10)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <span>Gym (5)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deudores Chart -->
+        <div class="sports-card">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="alert-triangle" class="w-5 h-5 mr-2 text-red-600"></i>
+                Análisis de Deudores
+            </h3>
+            <div class="flex justify-center mb-4">
+                <canvas id="deudoresChart" width="200" height="200"></canvas>
+            </div>
+            <div class="flex justify-center gap-4 text-xs">
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span>Al día (21)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span>Deudores (3)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comprobantes Chart -->
+        <div class="sports-card">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="file-check" class="w-5 h-5 mr-2 text-green-600"></i>
+                Comprobantes de Pago
+            </h3>
+            <div class="flex justify-center mb-4">
+                <canvas id="comprobantesChart" width="200" height="200"></canvas>
+            </div>
+            <div class="flex justify-center gap-4 text-xs">
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span>Adjuntados (14)</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <span>Pendientes (4)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="sports-card">
+            <h3 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="clock" class="w-5 h-5 mr-2 text-accent"></i>
+                Actividad Reciente
+            </h3>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 p-2 bg-muted/20 rounded">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm">María González adjuntó comprobante de pago</span>
+                    <span class="text-xs text-muted-foreground ml-auto">2h</span>
+                </div>
+                <div class="flex items-center gap-3 p-2 bg-muted/20 rounded">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm">Nueva sesión de triatlón programada</span>
+                    <span class="text-xs text-muted-foreground ml-auto">4h</span>
+                </div>
+                <div class="flex items-center gap-3 p-2 bg-muted/20 rounded">
+                    <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span class="text-sm">Juan Rodríguez - pago pendiente</span>
+                    <span class="text-xs text-muted-foreground ml-auto">1d</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-8 text-center">
+            <button
+                onclick="window.location.href='index.html'"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+            >
+                <i data-lucide="log-out" class="w-4 h-4 mr-2 inline"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Initialize Charts
+        const ctx1 = document.getElementById('paymentsChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Pagados', 'Pendientes'],
+                datasets: [{
+                    data: [18, 6],
+                    backgroundColor: ['#22c55e', '#f97316'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('sessionsChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Run', 'Swim', 'Bike', 'Gym'],
+                datasets: [{
+                    data: [15, 12, 10, 5],
+                    backgroundColor: ['#3b82f6', '#ef4444', '#22c55e', '#a855f7'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const ctx3 = document.getElementById('deudoresChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['Al día', 'Deudores'],
+                datasets: [{
+                    data: [21, 3],
+                    backgroundColor: ['#22c55e', '#ef4444'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const ctx4 = document.getElementById('comprobantesChart').getContext('2d');
+        new Chart(ctx4, {
+            type: 'doughnut',
+            data: {
+                labels: ['Adjuntados', 'Pendientes'],
+                datasets: [{
+                    data: [14, 4],
+                    backgroundColor: ['#22c55e', '#eab308'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

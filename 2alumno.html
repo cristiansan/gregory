@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos - Gregory Team</title>
+    <link rel="stylesheet" href=".superdesign/design_iterations/triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <div class="sports-header text-white" style="padding: 1.5rem 1rem;">
+        <div class="flex flex-col items-start">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-white/30 mb-2">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                     alt="Cristian Saenz" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white drop-shadow-lg">CRISTIAN SAENZ</h1>
+                <p class="text-white/90 text-sm drop-shadow-md">Estado de Pagos</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 sports-container">
+        <!-- Navigation -->
+        <div class="sports-nav">
+            <div class="flex justify-between gap-2">
+                <button class="sports-button secondary flex-1" onclick="window.location.href='1alumno.html'">FICHA</button>
+                <button class="sports-button accent flex-1 bg-accent text-white">$</button>
+                <button class="sports-button secondary flex-1" onclick="window.location.href='4alumno.html'">PLANES</button>
+            </div>
+        </div>
+
+        <!-- Payment Status Summary -->
+        <div class="sports-card">
+            <h2 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="credit-card" class="w-5 h-5 mr-2 text-accent"></i>
+                Resumen de Pagos
+            </h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="text-center p-3 bg-green-50 rounded-lg border border-green-200">
+                    <p class="text-green-800 font-bold text-2xl">8</p>
+                    <p class="text-green-600 text-sm">Pagos al día</p>
+                </div>
+                <div class="text-center p-3 bg-orange-50 rounded-lg border border-orange-200">
+                    <p class="text-orange-800 font-bold text-2xl">2</p>
+                    <p class="text-orange-600 text-sm">Pendientes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payments List -->
+        <div class="sports-card">
+            <h2 class="text-lg font-semibold mb-4 text-foreground">Estado por Mes</h2>
+            <div class="space-y-3">
+                <!-- Pending months -->
+                <div class="flex items-center justify-between p-4 bg-orange-50 rounded-lg border border-orange-200 cursor-pointer hover:bg-orange-100 transition-colors" onclick="goToPayment('septiembre')">
+                    <div class="flex items-center">
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-orange-600 mr-3"></i>
+                        <span class="font-medium text-orange-800">SEPTIEMBRE</span>
+                    </div>
+                    <span class="text-orange-600 text-sm font-medium">PENDIENTE</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-orange-50 rounded-lg border border-orange-200 cursor-pointer hover:bg-orange-100 transition-colors" onclick="goToPayment('agosto')">
+                    <div class="flex items-center">
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-orange-600 mr-3"></i>
+                        <span class="font-medium text-orange-800">AGOSTO</span>
+                    </div>
+                    <span class="text-orange-600 text-sm font-medium">PENDIENTE</span>
+                </div>
+
+                <!-- Paid months -->
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3"></i>
+                        <span class="font-medium text-green-800">JULIO</span>
+                    </div>
+                    <span class="text-green-600 text-sm font-medium">PAGADO</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3"></i>
+                        <span class="font-medium text-green-800">JUNIO</span>
+                    </div>
+                    <span class="text-green-600 text-sm font-medium">PAGADO</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3"></i>
+                        <span class="font-medium text-green-800">MAYO</span>
+                    </div>
+                    <span class="text-green-600 text-sm font-medium">PAGADO</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3"></i>
+                        <span class="font-medium text-green-800">ABRIL</span>
+                    </div>
+                    <span class="text-green-600 text-sm font-medium">PAGADO</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3"></i>
+                        <span class="font-medium text-green-800">MARZO</span>
+                    </div>
+                    <span class="text-green-600 text-sm font-medium">PAGADO</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3"></i>
+                        <span class="font-medium text-green-800">FEBRERO</span>
+                    </div>
+                    <span class="text-green-600 text-sm font-medium">PAGADO</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                    <div class="flex items-center">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3"></i>
+                        <span class="font-medium text-green-800">ENERO</span>
+                    </div>
+                    <span class="text-green-600 text-sm font-medium">PAGADO</span>
+                </div>
+
+                <!-- 2024 Year -->
+                <div class="flex items-center justify-between p-4 bg-muted/30 rounded-lg border cursor-pointer hover:bg-muted/40 transition-colors">
+                    <div class="flex items-center">
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-muted-foreground mr-3"></i>
+                        <span class="font-medium text-muted-foreground">2024</span>
+                    </div>
+                    <span class="text-muted-foreground text-sm">Ver año anterior</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="flex gap-3 mt-6">
+            <button class="sports-button accent flex-1" onclick="goToPayment('septiembre')">
+                <i data-lucide="credit-card" class="w-4 h-4 mr-2 inline"></i>
+                Pagar Pendiente
+            </button>
+            <button class="sports-button secondary flex-1" onclick="window.location.href='1alumno.html'">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2 inline"></i>
+                Volver a Ficha
+            </button>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-8 text-center">
+            <button
+                onclick="window.location.href='index.html'"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+            >
+                <i data-lucide="log-out" class="w-4 h-4 mr-2 inline"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function goToPayment(month) {
+            // Store selected month for payment page
+            localStorage.setItem('selectedMonth', month);
+            window.location.href = '3alumno.html';
+        }
+    </script>
+</body>
+</html>

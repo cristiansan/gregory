@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Gregory Team</title>
+    <link rel="stylesheet" href=".superdesign/design_iterations/triathlon_theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <div class="sports-header text-white" style="padding: 1.5rem 1rem;">
+        <div class="flex flex-col items-start">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden border-2 border-white/30 mb-2">
+                <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white drop-shadow-lg">ADMINISTRADOR</h1>
+                <p class="text-white/90 text-sm drop-shadow-md">Panel de Control</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 sports-container">
+        <!-- Navigation -->
+        <div class="sports-nav">
+            <div class="flex justify-between gap-2">
+                <button class="sports-button flex-1 bg-primary text-white">ALUMNOS</button>
+                <button class="sports-button accent flex-1" onclick="window.location.href='2admin.html'">$</button>
+                <button class="sports-button secondary flex-1" onclick="window.location.href='3admin.html'">PLANES</button>
+            </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="sports-card">
+            <h2 class="text-lg font-semibold mb-4 text-foreground flex items-center">
+                <i data-lucide="filter" class="w-5 h-5 mr-2"></i>
+                Filtrar por Disciplina
+            </h2>
+            <div class="grid grid-cols-5 gap-2 mb-4">
+                <button onclick="filterStudents('all')" class="filter-btn active px-3 py-2 text-xs rounded-lg bg-primary text-white font-medium">ALL</button>
+                <button onclick="filterStudents('bike')" class="filter-btn px-3 py-2 text-xs rounded-lg bg-blue-100 text-blue-800 font-medium">🚴 Bike</button>
+                <button onclick="filterStudents('run')" class="filter-btn px-3 py-2 text-xs rounded-lg bg-green-100 text-green-800 font-medium">🏃 Run</button>
+                <button onclick="filterStudents('swim')" class="filter-btn px-3 py-2 text-xs rounded-lg bg-cyan-100 text-cyan-800 font-medium">🏊 Swim</button>
+                <button onclick="filterStudents('gym')" class="filter-btn px-3 py-2 text-xs rounded-lg bg-purple-100 text-purple-800 font-medium">🏋️ Gym</button>
+            </div>
+        </div>
+
+        <!-- Students List -->
+        <div id="studentsList" class="sports-card">
+
+            <div class="space-y-2 max-h-96 overflow-y-auto" id="studentsContainer">
+                <!-- Bike students -->
+                <div class="student-item bike flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">CS</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Cristian Saenz</p>
+                            <p class="text-xs text-muted-foreground">Bike</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200" data-paid="false">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item bike flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">AM</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Andrés Martín</p>
+                            <p class="text-xs text-muted-foreground">Bike</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200" data-paid="true">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item bike flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">RF</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Roberto Fernández</p>
+                            <p class="text-xs text-muted-foreground">Bike</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200" data-paid="true">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item bike flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">MR</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Miguel Ramírez</p>
+                            <p class="text-xs text-muted-foreground">Bike</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200" data-paid="true">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Run students -->
+                <div class="student-item run flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">MG</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">María González</p>
+                            <p class="text-xs text-muted-foreground">Run</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200" data-paid="true">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item run flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">LS</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Laura Silva</p>
+                            <p class="text-xs text-muted-foreground">Run</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200" data-paid="false">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item run flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">SP</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Sofía Pérez</p>
+                            <p class="text-xs text-muted-foreground">Run</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200" data-paid="false">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item run flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">NG</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Natalia García</p>
+                            <p class="text-xs text-muted-foreground">Run</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200" data-paid="false">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Swim students -->
+                <div class="student-item swim flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">CV</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Carla Vega</p>
+                            <p class="text-xs text-muted-foreground">Swim</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200" data-paid="false">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item swim flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">DL</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Diego López</p>
+                            <p class="text-xs text-muted-foreground">Swim</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200" data-paid="true">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item swim flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">PC</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Pablo Castro</p>
+                            <p class="text-xs text-muted-foreground">Swim</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200" data-paid="true">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Gym students -->
+                <div class="student-item gym flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">JR</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Juan Rodríguez</p>
+                            <p class="text-xs text-muted-foreground">Gym</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200" data-paid="true">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item gym flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">VT</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Valeria Torres</p>
+                            <p class="text-xs text-muted-foreground">Gym</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200" data-paid="false">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="student-item gym flex items-center justify-between p-3 bg-muted/20 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-primary">ER</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-foreground">Elena Romero</p>
+                            <p class="text-xs text-muted-foreground">Gym</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePayment(this)" class="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200" data-paid="false">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-8 text-center">
+            <button
+                onclick="window.location.href='index.html'"
+                class="text-muted-foreground hover:text-foreground transition-colors"
+            >
+                <i data-lucide="log-out" class="w-4 h-4 mr-2 inline"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function filterStudents(category) {
+            const studentItems = document.querySelectorAll('.student-item');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const categoryTitle = document.getElementById('categoryTitle');
+
+            // Update active button
+            filterBtns.forEach(btn => {
+                btn.classList.remove('active', 'bg-primary', 'text-white');
+                if (btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent === 'ALL')) {
+                    btn.classList.add('active', 'bg-primary', 'text-white');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-white');
+                }
+            });
+
+            // Update title
+            if (category === 'all') {
+                categoryTitle.textContent = '';
+            } else {
+                const categoryNames = {
+                    'bike': '- Bike',
+                    'run': '- Run',
+                    'swim': '- Swim',
+                    'gym': '- Gym'
+                };
+                categoryTitle.textContent = categoryNames[category] || '';
+            }
+
+            // Filter students
+            studentItems.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function togglePayment(button) {
+            const isPaid = button.getAttribute('data-paid') === 'true';
+
+            if (isPaid) {
+                // Change to unpaid
+                button.setAttribute('data-paid', 'false');
+                button.className = 'w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center border border-red-200';
+                button.innerHTML = '<i data-lucide="x" class="w-4 h-4"></i>';
+            } else {
+                // Change to paid
+                button.setAttribute('data-paid', 'true');
+                button.className = 'w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center border border-green-200';
+                button.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i>';
+            }
+
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
